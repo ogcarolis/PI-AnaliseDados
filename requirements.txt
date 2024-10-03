@@ -4,3 +4,5 @@ pandas
 beautifulsoup4 
 lxml
 requests
+selenium
+undetected-chromedriver
