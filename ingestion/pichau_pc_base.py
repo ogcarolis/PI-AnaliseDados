@@ -3,12 +3,14 @@ import pandas as pd
 import undetected_chromedriver as uc
 import time
 import random
+from datetime import datetime
 
 class PichauBase():
     # URL da API que você quer acessar
     url = "https://www.pichau.com.br/api/catalog"
 
     sku_list = [
+        'Pichau-PC-Gamer-42230',
         'PCM-Pichau-Gamer-50695',
         '100-100000927BOX',
         'BX8071514400',
@@ -167,8 +169,6 @@ class PichauBase():
 
             try:
                 
-                time.sleep(random.uniform(3, 7))
-                
                 # response = self.session.post(
                 #     self.url,
                 #     headers=self.headers,
@@ -206,7 +206,7 @@ class PichauBase():
         
         # Save results
         if results:
-            with open('pichau_products.json', 'w', encoding='utf-8') as f:
+            with open(f'pichau_{datetime.today().strftime('%Y-%m-%d')}.json', 'w', encoding='utf-8') as f:
                 json.dump(results, f, ensure_ascii=False, indent=2)
         
         return results
