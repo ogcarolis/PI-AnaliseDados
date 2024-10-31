@@ -41,14 +41,20 @@ class KabumScrapper(scrapy.Spider):
             product_info = pc_data['props']['pageProps']['data']['productCatalog']
             product_info = json.loads(product_info)
 
+            # print(product_info)
             # Extraindo informações específicas como nome, preço, etc.
             code = product_info['code']
             name = product_info['name']
-            old_price = product_info['price']
-            price = product_info['priceMarketplace']
             max_installment = product_info['maxInstallment']
 
-            if price == 0:
+            old_price = product_info['price']
+            price = product_info['priceWithDiscount']
+            
+            offer = product_info['offer']
+            if offer:
+                old_price = offer['price']
+                price = offer['priceWithDiscount']
+            elif price == 0:
                 price = old_price
 
             yield {
