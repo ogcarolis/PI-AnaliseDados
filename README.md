@@ -12,6 +12,7 @@ Comparar os preços de componentes de computador para verificar se há variaçõ
 ## 🏬 Lojas Analisadas
 - KaBum!
 - Pichau
+- Terabyte
 
 ## 💻 Desenvolvedores
 - Carolina Gimenez
